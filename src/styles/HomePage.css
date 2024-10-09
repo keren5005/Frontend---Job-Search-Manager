@@ -1,0 +1,49 @@
+.hero-section {
+    background-color: #282c34;
+    text-align: center;
+    padding: 50px;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .custom-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button-primary {
+    background-color: #ffcc00;
+    border: none;
+    color: black;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button-primary:hover {
+    background-color: #ff9900;
+    transform: scale(1.1);
+  }
+  
+  .gif-wrapper {
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  .gif-image {
+    width: 150px;
+    border-radius: 10px;
+  }
+  
+  .lottie-animation {
+    width: 200px;
+    margin: 0 auto;
+  }
+  

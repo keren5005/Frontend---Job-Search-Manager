@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage'; // Import HomePage
 import JobManager from './components/JobManager'; // Import JobManager
 import JobOffers from './components/JobOffers'; // Import JobOffers
-import SalleryRange from './components/SalleryRange';
+import SalleryRange from './components/SalleryRange'; // Import SalleryRange
+import JobSearchTips from './components/JobSearchTips'; // Import JobSearchTips
 
 const App = () => {
   return (
@@ -20,6 +21,9 @@ const App = () => {
 
         {/* Route for the salary range page */}
         <Route path="/salary-range" element={<SalleryRange />} />
+
+        {/* Route for the job search tips page */}
+        <Route path="/job-search-tips" element={<JobSearchTips />} />
       </Routes>
     </Router>
   );
