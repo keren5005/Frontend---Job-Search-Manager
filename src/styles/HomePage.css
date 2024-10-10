@@ -1,49 +1,48 @@
 .hero-section {
-    background-color: #282c34;
     text-align: center;
-    padding: 50px;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .custom-card {
+    padding: 80px 20px;
+    background-color: #f0f8ff; /* Light background color */
+    position: relative;
+    z-index: 1;
+}
+
+.custom-card {
+    border-radius: 15px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .custom-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .button-primary {
-    background-color: #ffcc00;
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button-primary {
+    background-color: #009688; /* Teal color */
+    color: white;
     border: none;
-    color: black;
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .button-primary:hover {
-    background-color: #ff9900;
-    transform: scale(1.1);
-  }
-  
-  .gif-wrapper {
+    transition: background-color 0.3s ease;
+}
+
+.button-primary:hover {
+    background-color: #00796b; /* Darker shade */
+}
+
+.gif-wrapper {
     display: inline-block;
     margin: 20px;
-  }
-  
-  .gif-image {
+}
+
+.gif-image {
     width: 150px;
     border-radius: 10px;
-  }
-  
-  .lottie-animation {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lottie-animation {
     width: 200px;
-    margin: 0 auto;
-  }
-  
+    margin: 20px auto;
+}

@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Bar } from 'react-chartjs-2';
+import '../styles/SalaryRange.css';  // Make sure the spelling is correct
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+
+// Register the necessary components for Chart.js
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 type SalaryResult = {
   salary_min: number;
@@ -54,6 +69,18 @@ const SalaryRange = () => {
     fetchSalaryRange();
   };
 
+  const chartData = {
+    labels: ['Salary Min', 'Salary Max'],
+    datasets: [
+      {
+        label: 'Salary Range',
+        data: salaryRange ? [salaryRange.salary_min, salaryRange.salary_max] : [0, 0],
+        backgroundColor: ['#36A2EB', '#FF6384'],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <div>
       <h2>Salary Range Estimator</h2>
@@ -94,6 +121,37 @@ const SalaryRange = () => {
             ${salaryRange.salary_min.toLocaleString()} - $
             {salaryRange.salary_max.toLocaleString()} per year
           </p>
+
+          {/* Salary Range Chart */}
+          <div style={{ maxWidth: '500px', margin: '0 auto' }}>
+            <Bar data={chartData} />
+          </div>
+
+          <div className="form-container">
+  <h2>Salary Range Estimator</h2>
+  <form onSubmit={handleSubmit}>
+    <div>
+      <label>Job Title:</label>
+      <input
+        type="text"
+        value={jobTitle}
+        onChange={(e) => setJobTitle(e.target.value)}
+        placeholder="Enter job title (e.g., developer, engineer)"
+      />
+        </div>
+        <div>
+          <label>Location:</label>
+          <input
+            type="text"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            placeholder="Enter location (e.g., San Francisco, CA)"
+          />
+        </div>
+        <button type="submit">Get Salary Range</button>
+      </form>
+    </div>
+
         </div>
       )}
     </div>

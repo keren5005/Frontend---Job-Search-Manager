@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/JobOffers.css'; // Import the CSS file
 
-// Define the Job type
 type Job = {
   id: string;
   title: string;
@@ -16,7 +16,6 @@ const JobOffers = () => {
   const [filterLocation, setFilterLocation] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Fetch jobs from Adzuna API
   const fetchAdzunaJobs = async () => {
     setLoading(true);
     try {
@@ -24,8 +23,8 @@ const JobOffers = () => {
         `https://api.adzuna.com/v1/api/jobs/us/search/1`,
         {
           params: {
-            app_id: '6d4aef15', // Replace with your Adzuna App ID
-            app_key: 'c809672957d91020285e6e6f903ffc11', // Replace with your Adzuna API Key
+            app_id: '6d4aef15',
+            app_key: 'c809672957d91020285e6e6f903ffc11',
             results_per_page: 10,
             what: searchQuery,
             where: filterLocation,
@@ -33,13 +32,15 @@ const JobOffers = () => {
         }
       );
       const jobs = response.data.results;
-      setJobs(jobs.map((job: any) => ({
-        id: job.id,
-        title: job.title,
-        company: job.company.display_name,
-        location: job.location.display_name,
-        url: job.redirect_url,
-      })));
+      setJobs(
+        jobs.map((job: any) => ({
+          id: job.id,
+          title: job.title,
+          company: job.company.display_name,
+          location: job.location.display_name,
+          url: job.redirect_url,
+        }))
+      );
     } catch (error) {
       console.error('Error fetching Adzuna jobs:', error);
     } finally {
@@ -53,11 +54,11 @@ const JobOffers = () => {
   };
 
   return (
-    <div>
-      <h2>Job Offers</h2>
+    <div className="job-offers-container">
+      <h2 className="job-offers-title">Job Offers</h2>
 
       {/* Search and Filter Form */}
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} className="job-search-form">
         <input
           type="text"
           placeholder="Search by job title or keyword"
@@ -74,11 +75,11 @@ const JobOffers = () => {
       </form>
 
       {/* Loading Indicator */}
-      {loading && <p>Loading jobs...</p>}
+      {loading && <p className="loading-message">Loading jobs...</p>}
 
       {/* Display Jobs */}
       {!loading && jobs.length > 0 ? (
-        <ul>
+        <ul className="job-list">
           {jobs.map((job) => (
             <li key={job.id}>
               <h3>{job.title}</h3>
