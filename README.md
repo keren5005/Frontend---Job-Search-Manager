@@ -1,10 +1,11 @@
 <h1 align="center">
-  Job Search Manager
+  JOFI - Job Finder
 </h1>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0faa0a98-dd58-49ea-9451-ca585ba53fa5" alt="Job Search Manager Logo" width="150"/>
+  <img src="src/assets/images/image.png" alt="Job Search Manager Logo" width="150"/>
 </p>
+
 
 **Version**: 0.1.0
 
